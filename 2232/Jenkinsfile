@@ -58,7 +58,7 @@ pipeline {
 
                     // 도커 로그인
                     withCredentials([usernamePassword(credentialsId: 'docker_password', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
-                        sh "echo " + '${PASSWORD}' + " | docker login -u " + '${USERNAME}' + " --password-stdin"
+                        sh "echo " + '${PASSWORD}' + " | docker login -u " + '${DOCKERHUB_USERNAME}' + " --password-stdin"
                     }
 
                     // 도커 빌드 및 업로드
